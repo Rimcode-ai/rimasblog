@@ -1,0 +1,163 @@
+export const personalInfo = {
+  name: 'Rima Modak',
+  title: 'Senior AI/ML Engineer',
+  email: 'rimamodakglobal06@gmail.com',
+  phone: '(669) 215-3876',
+  linkedin: 'rimamodak',
+  portfolio: 'rimasblog',
+  summary: 'Dedicated and results-oriented AI/ML Engineer with experience of 10+ years in designing, developing, and deploying end-to-end AI and ML solutions on AWS and Azure. Expertise in MLOps, Data processing, NLP, and predictive modeling (including deep learning and ensemble methods). Proven track record in building production-grade AI agents, orchestrating multi-agent workflows (LangGraph, CrewAI, AutoGen), and deploying scalable LLM inference systems. Skilled at LLM Fine-Tuning (LoRA, QLoRA), RAG Architecture (Pinecone, Weaviate, ChromaDB), AI security, governance, and ethical AI principles. Passionate about bridging the gap between prototypes and enterprise-grade AI products.',
+};
+
+export const technicalSkills = {
+  'Programming Languages': ['Python', 'SQL', 'NoSQL', 'PySpark', 'JavaScript', 'C++', 'Apex', 'JSON Schema'],
+  'Machine Learning & Deep Learning': ['TensorFlow', 'PyTorch', 'Scikit-learn', 'XGBoost', 'Random Forest', 'LSTM', 'SARIMAX', 'ANN', 'CNN', 'BERT', 'Transformers', 'spaCy', 'NLTK', 'Gensim', 'OpenAI APIs', 'Anthropic API', 'LangChain', 'LangGraph', 'LlamaIndex', 'CrewAI', 'AutoGen', 'OpenCV', 'NumPy', 'Pandas', 'HuggingFace', 'vLLM', 'TensorRT'],
+  'Data Processing & Engineering': ['PySpark', 'Apache Kafka', 'StreamSets', 'dbt', 'Matillion'],
+  'Cloud Platforms & Services': ['AWS S3', 'AWS Glue', 'AWS Lambda', 'Amazon ECR', 'Amazon ECS', 'Amazon SageMaker', 'Amazon CloudWatch', 'Pinecone', 'Azure Blob Storage', 'Azure Data Factory', 'Azure ML Studio', 'Azure Databricks', 'Azure Kubernetes Service (AKS)', 'Azure SQL Data Warehouse (Synapse Analytics)', 'AWS Bedrock', 'Azure OpenAI', 'Google Vertex AI', 'Google Cloud Platform (GCP)', 'Google Distributed Cloud'],
+  'MLOps & CI/CD': ['Docker', 'Kubernetes (AKS, ECS, GKE)', 'Apache Airflow', 'GitHub Actions', 'Jenkins', 'MLflow', 'Kubeflow', 'AutoML', 'Hyperopt', 'Weights & Biases', 'Model Drift Detection', 'Automated Retraining', 'CI/CD for ML', 'Postman', 'REST API Testing'],
+  'Databases & Warehousing': ['Databricks', 'Snowflake', 'Delta Lake', 'Lakehouse Architecture', 'RedShift', 'PostgreSQL', 'MongoDB', 'Cosmos DB', 'Pinecone', 'Weaviate', 'ChromaDB'],
+  'Business Analysis & Visualization': ['Agile Methodologies', 'Power BI', 'Tableau', 'Excel', 'Matplotlib', 'Seaborn', 'Google Analytics', 'Adobe Analytics', 'Alteryx', 'KNIME', 'Stata', 'Google Ads', 'Bing Ads', 'Microsoft Fabric', 'Microsoft Copilot', 'Amazon Q'],
+  'LLM/GenAI & Agentic AI': ['LLM Fine-Tuning (LoRA, QLoRA)', 'RAG Pipelines', 'Prompt Engineering', 'Agentic AI & Multi-Agent Systems', 'Tool Calling', 'Structured Output Parsing', 'Model Context Protocol (MCP)', 'OpenAI Agents SDK', 'Claude & Cursor', 'OpenClaw', 'Token Scheduling', 'KV Caching', 'Pipelined Inference', 'LLM Cost Optimization', 'Latency Tuning', 'AI Security Controls', 'Governance Frameworks', 'Ethical AI', 'Hallucination Reduction', 'Quantum Computing Fundamentals'],
+  'CRM & Enterprise Platforms': ['Salesforce Health Cloud', 'Salesforce Configuration (Flows, Objects, Security Model)', 'Apex', 'Lightning Web Components (LWC)', 'FHIR/Health Data Standards', 'Collibra (Data Governance)', 'ServiceNow', 'Workday'],
+  'Testing, Security & Compliance': ['Automated Test Frameworks', 'JSON Schema Validation', 'Software Testing', 'API Testing (Postman, REST Clients)', 'System Integration & Validation', 'IAM-based Security', 'Data Protection', 'Identity & Threat Modeling', 'Cybersecurity & Risk Mitigation', 'ESG Reporting', 'Accessible Technologies', 'Trust & Safety', 'Blockchain Fundamentals'],
+};
+
+export const workExperience = [
+  {
+    title: 'Senior AI/ML Engineer',
+    company: 'Firstup',
+    location: 'San Mateo, California',
+    startDate: 'Jul 2025',
+    endDate: 'Present',
+    highlights: [
+      'Developed an Agentic AI service using Node.js 22, Express 5, and the OpenAI Agents SDK to power platform-wide agentic search and information retrieval.',
+      'Implemented Model Context Protocol (MCP) to expose internal tools to external AI systems via JSON-RPC, enabling seamless tool-calling and context sharing across the model ecosystem.',
+      'Built Semantic Retrieval Tools (RAG Architecture, Pinecone, Weaviate, ChromaDB) integrated with Vector DB for natural language queries, supporting multi-turn reasoning and parallel tool calls for complex employee directory and content searches.',
+      'Engineered Productivity Integrations for Workday, ServiceNow, and Google Drive, allowing the agent to execute executable commands directly via LLM orchestration.',
+      'Architected specialized agents for thread summarization and content windowing, ensuring optimal context utilization for long-form search results while maintaining strict IAM-based security protocols.',
+    ],
+    achievements: 'Successfully operationalized a foundational Agentic AI infrastructure, transitioning legacy micro-services into reasoning-capable collaborators. Delivered enterprise-grade AI features that reduced customer support latency and improved data interpretation efficiency by 40%.',
+  },
+  {
+    title: 'AI/ML Engineer (Contracted)',
+    company: 'Sycomp',
+    location: 'Foster City, California',
+    startDate: 'Feb 2024',
+    endDate: 'Jul 2025',
+    highlights: [
+      'Designed and deployed real-time AI-powered ETL pipelines to ingest high-volume, diverse financial documents from sources including email systems, SFTP, and APIs into Amazon S3 and Snowflake.',
+      'Engineered scalable data modeling and transformation pipelines with PySpark in Databricks and dbt, optimizing data readiness for ML.',
+      'Developed complex SQL queries for large datasets from PostgreSQL and Snowflake to support business intelligence.',
+      'Deployed custom text classification models using Logistic Regression, Random Forest, Gradient Boosting, TensorFlow, and Keras for multi-category and multi-label feedback analysis.',
+      'Implemented and evaluated unsupervised machine learning models (K-Means, DBSCAN, Hierarchical Clustering) for customer feedback segmentation.',
+      'Architected Agentic AI and Multi-Agent Systems using LangGraph, CrewAI, and AutoGen for financial document processing and customer inquiry routing.',
+    ],
+    achievements: 'Successfully collaborated cross-functionally with data operations, compliance, and investment management teams to integrate machine learning model outputs into Power BI dashboards, reducing manual report generation by a projected 75%.',
+  },
+  {
+    title: 'AI/ML Engineer (Contractor)',
+    company: 'Corcentric (via SynergisticIT)',
+    location: 'Cherry Hill, New Jersey',
+    startDate: 'Jun 2023',
+    endDate: 'Jan 2024',
+    highlights: [
+      'Developed and optimized ensemble Machine Learning models (XGBoost, CatBoost, Random Forest, Lasso, Ridge Regression) to predict invoice delay likelihood and optimal dynamic discount rates, achieving 90%+ accuracy.',
+      'Implemented LSTM and SARIMAX models for time series forecasting of payment cycles, identifying seasonal trends in vendor behavior.',
+      'Constructed an NLP pipeline using spaCy, OpenNLP, and Gensim to parse unstructured invoice PDFs and emails.',
+      'Performed hyperparameter tuning and applied regularization techniques to prevent overfitting and improve model generalization.',
+      'Leveraged GitHub Actions for CI/CD, automating model deployment and updates into Amazon ECR.',
+    ],
+    achievements: 'Achieved 90%+ accuracy in high-risk invoice identification, enhancing financial efficiency and reducing risk exposure. Predicted invoice delay likelihood and optimal dynamic discount rates, directly supporting liquidity planning.',
+  },
+  {
+    title: 'AI/ML Power BI Developer',
+    company: 'Meta Dynamic (via SynergisticIT)',
+    location: 'Orange, California',
+    startDate: 'Nov 2022',
+    endDate: 'May 2023',
+    highlights: [
+      'Built end-to-end enterprise Power BI solution for a healthcare client, modernizing operational KPI and resource utilization monitoring.',
+      'Developed and optimized data pipelines using AWS S3 and Python scripts on AWS Lambda.',
+      'Built robust Power BI data models, applied advanced Power Query transformations, and developed complex custom DAX queries.',
+      'Reduced manual reporting time by 60% through a reusable Power BI framework and automated data refresh configurations.',
+      'Researched and developed proofs-of-concept for integrating GenAI, LLMs, RAG, LangChain, and OpenAI APIs.',
+    ],
+    achievements: 'Enabled real-time monitoring, providing executives and stakeholders with immediate access to up-to-date operational KPIs and resource utilization trends.',
+  },
+  {
+    title: 'Data Scientist',
+    company: 'Ericsson',
+    location: 'Bangalore, India',
+    startDate: 'Jan 2020',
+    endDate: 'Aug 2022',
+    highlights: [
+      'Contributed to the design and implementation of a cloud-native, ML-integrated ETL/ELT pipeline within Microsoft Azure.',
+      'Engineered and deployed robust PySpark-based data transformation workflows on Azure Databricks, utilizing dbt and Delta Lake.',
+      'Developed and fine-tuned diverse machine learning models for Network Traffic Forecasting using LSTM and SARIMAX models.',
+      'Implemented advanced NLP techniques (NLTK, spaCy, Gensim, Word2vec) for analyzing unstructured network logs.',
+      'Integrated ML models into production-ready Databricks ML pipelines, leveraging MLflow for experiment tracking.',
+    ],
+    achievements: 'Contributed to significant performance tuning efforts, achieving a 40% improvement in data pipeline throughput and latency through Delta Lake optimization and distributed resource management.',
+  },
+  {
+    title: 'Data Scientist / ML Engineer (Associate)',
+    company: 'Navsoft',
+    location: 'Mumbai, India',
+    startDate: 'May 2017',
+    endDate: 'Mar 2019',
+    highlights: [
+      'Developed a comprehensive retail analytics platform, bridging real-time in-store camera data with sales information.',
+      'Implemented robust data pipelines utilizing Azure Event Hubs and Blob Storage.',
+      'Engineered and deployed robust predictive models using Python (ARIMA, SARIMA, Holt-Winters) for sales forecasting and inventory optimization.',
+      'Developed dynamic pricing strategies using Python (Linear Regression, Decision Trees, Random Forests).',
+      'Configured and maintained Jenkins-based CI/CD workflows to automate deployment within Azure environments.',
+    ],
+    achievements: 'Boosted sales forecasting accuracy by 15-20%, leading to a significant reduction in stockouts and optimized inventory levels. Increased profit margins by 5-10% through more effective inventory management.',
+  },
+];
+
+export const education = [
+  {
+    degree: "Master's of Science in Computer Science and Engineering",
+    institution: 'Santa Clara University',
+    location: 'Santa Clara, California',
+    gpa: '3.96/4.0',
+  },
+  {
+    degree: "Bachelor's of Science in Computer Science and Engineering",
+    institution: 'University of Petroleum and Energy Studies',
+    location: 'Dehradun, India',
+    gpa: '3.90/4.0',
+  },
+];
+
+export const certifications = [
+  'UC-Berkeley Executive Education: AI Business Strategies and Applications',
+  'Microsoft AZURE Fundamentals: AZ-900',
+  'DeepLearning.ai: ML Specialization, LangChain for LLMs',
+  'Databricks Certified Data Analyst and ML Engineer',
+  'McKinsey.org Forward Program',
+  'Azure AI Engineer Associate (AI-102)',
+  'Azure Data Scientist Associate (DP-100)',
+  'Certificate in Business Analytics, Data Mining, and Statistical Analysis',
+];
+
+export const softSkills = [
+  'Problem-Solving',
+  'Cross-functional Collaboration',
+  'Communication',
+  'Leadership',
+  'Project & Stakeholder Management',
+  'Data-Driven Decision Making',
+  'Technical Adaptability',
+  'Critical Thinking',
+  'Mentorship',
+  'Strategic Planning',
+  'Adaptability & Resilience',
+  'Creative Thinking',
+  'Emotional Intelligence (EQ)',
+  'Curiosity & Lifelong Learning',
+  'Dependability & Ownership',
+  'Consultative Selling',
+  'Ethical Judgment',
+  'Technical Presentation to Senior Leadership',
+];
