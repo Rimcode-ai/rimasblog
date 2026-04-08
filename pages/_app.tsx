@@ -7,6 +7,17 @@ export default function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Default: light mode. Apply saved preference if set.
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch {
+      document.documentElement.classList.remove('dark');
+    }
     setMounted(true);
   }, []);
 

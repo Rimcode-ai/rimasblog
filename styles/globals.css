@@ -1,37 +1,295 @@
 @import "tailwindcss";
 
+/* ─── Theme CSS Variables ──────────────────────────────────── */
+/* Light mode (default) */
+:root {
+  --bg-primary:      #F8F6F0;
+  --bg-secondary:    #EFECE3;
+  --bg-card:         rgba(255,255,255,0.95);
+  --bg-card-hover:   rgba(255,255,255,1);
+  --bg-nav:          rgba(248,246,240,0.97);
+  --bg-hero:         #F8F6F0;
+  --bg-footer:       #1A1A2E;
+  --bg-badge:        rgba(30,64,175,0.08);
+  --bg-skill-badge:  rgba(30,64,175,0.1);
+
+  --text-primary:    #1C1C2E;
+  --text-secondary:  #4A4A6A;
+  --text-muted:      #6B7280;
+  --text-faint:      #9CA3AF;
+  --text-footer:     #A0A0A0;
+
+  --border-gold:       rgba(184,134,11,0.3);
+  --border-gold-hover: rgba(212,175,55,0.6);
+  --border-silver:     rgba(0,0,0,0.12);
+  --border-blue:       rgba(30,64,175,0.25);
+  --border-nav:        rgba(184,134,11,0.2);
+
+  --skill-badge-color:  #1E40AF;
+  --skill-badge-border: rgba(30,64,175,0.25);
+
+  --shadow-card: 0 2px 20px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 8px 40px rgba(184,134,11,0.15);
+  --shadow-nav: 0 2px 20px rgba(0,0,0,0.08);
+
+  /* Gold palette — same in both modes */
+  --color-gold: #D4AF37;
+  --color-gold-light: #F5D060;
+  --color-gold-dark: #B8860B;
+  --color-gold-bright: #FFD700;
+  --color-silver: #C0C0C0;
+  --color-silver-light: #E8E8E8;
+  --color-silver-dark: #A0A0A0;
+  --color-navy: #0A0F1E;
+  --color-royal: #1E40AF;
+  --color-royal-bright: #2563EB;
+  --color-crimson: #DC2626;
+}
+
+/* Dark mode overrides */
+.dark {
+  --bg-primary:      #0A0F1E;
+  --bg-secondary:    #0D1A35;
+  --bg-card:         rgba(13,26,53,0.85);
+  --bg-card-hover:   rgba(13,26,53,0.95);
+  --bg-nav:          rgba(10,15,30,0.97);
+  --bg-hero:         #0A0F1E;
+  --bg-footer:       rgba(7,11,23,0.98);
+  --bg-badge:        rgba(30,64,175,0.25);
+  --bg-skill-badge:  rgba(30,64,175,0.25);
+
+  --text-primary:    #E8E8E8;
+  --text-secondary:  #C0C0C0;
+  --text-muted:      #8B8B8B;
+  --text-faint:      #5A5A5A;
+  --text-footer:     #A0A0A0;
+
+  --border-gold:       rgba(212,175,55,0.2);
+  --border-gold-hover: rgba(212,175,55,0.5);
+  --border-silver:     rgba(255,255,255,0.1);
+  --border-blue:       rgba(37,99,235,0.3);
+  --border-nav:        rgba(212,175,55,0.25);
+
+  --skill-badge-color:  #93C5FD;
+  --skill-badge-border: rgba(59,130,246,0.28);
+
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-card-hover: 0 8px 40px rgba(212,175,55,0.12);
+  --shadow-nav: 0 4px 30px rgba(0,0,0,0.5);
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply transition-colors duration-200;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   a {
-    @apply transition-colors;
+    transition: color 0.2s ease, opacity 0.2s ease;
   }
+
+  /* Gold scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #FFD700; }
 }
 
+/* ─── Components ────────────────────────────────────────────── */
 @layer components {
+
   .btn-primary {
-    @apply px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #B8860B 0%, #D4AF37 40%, #FFD700 65%, #D4AF37 80%, #B8860B 100%);
+    color: #0A0F1E;
+    box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+    border: none;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212,175,55,0.65);
   }
 
   .btn-secondary {
-    @apply px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: #D4AF37;
+    border: 2px solid rgba(212,175,55,0.6);
+    text-decoration: none;
+  }
+  .btn-secondary:hover {
+    background: rgba(212,175,55,0.1);
+    border-color: #D4AF37;
+    box-shadow: 0 0 25px rgba(212,175,55,0.3);
+    transform: translateY(-2px);
   }
 
-  .skill-badge {
-    @apply inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100 rounded-full text-sm mr-2 mb-2;
+  .btn-blue {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #1E40AF, #2563EB);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(37,99,235,0.4);
+    text-decoration: none;
+  }
+  .btn-blue:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37,99,235,0.6);
   }
 
-  .section-title {
-    @apply text-3xl font-bold mb-8 text-gray-900 dark:text-white;
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
+  }
+  .card:hover {
+    border-color: var(--border-gold-hover);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
   }
 
   .experience-card {
-    @apply bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow;
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
+  }
+  .experience-card:hover {
+    border-color: var(--border-gold-hover);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .skill-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--bg-skill-badge);
+    color: var(--skill-badge-color);
+    border: 1px solid var(--skill-badge-border);
+    transition: all 0.2s ease;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D060, #D4AF37);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #B8860B 0%, #D4AF37 30%, #FFD700 55%, #D4AF37 75%, #B8860B 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3.5s linear infinite;
+  }
+
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4AF37 40%, #FFD700 50%, #D4AF37 60%, transparent);
+    margin: 2rem 0;
+    opacity: 0.4;
   }
 }
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 15px rgba(212,175,55,0.2); }
+  50%       { box-shadow: 0 0 45px rgba(212,175,55,0.6); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* ─── Hero backdrop (light/dark aware) ─────────────────────── */
+.hero-backdrop {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(30,64,175,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(184,134,11,0.07) 0%, transparent 50%),
+    var(--bg-primary);
+}
+
+.dark .hero-backdrop {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(30,64,175,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.08) 0%, transparent 50%),
+    #0A0F1E;
+}
+
+/* Animation utilities */
+.animate-float       { animation: float 6s ease-in-out infinite; }
+.animate-shimmer     { animation: shimmer 3s linear infinite; }
+.animate-pulse-gold  { animation: pulseGold 2.5s ease-in-out infinite; }
+.animate-fade-in     { animation: fadeIn 0.7s ease-out; }
+.animate-slide-up    { animation: slideUp 0.6s ease-out; }
+.animate-spin-slow   { animation: spin-slow 12s linear infinite; }

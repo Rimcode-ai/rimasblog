@@ -1,85 +1,104 @@
 import React from 'react';
+import Link from 'next/link';
 import { personalInfo } from '@/data/resume';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* About Section */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Rima Modak</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Senior AI/ML Engineer with 10+ years of experience in designing and deploying enterprise-grade AI solutions.
+    <footer style={{
+      background: 'rgba(7,11,23,0.98)',
+      borderTop: '1px solid rgba(212,175,55,0.2)',
+      marginTop: '4rem',
+    }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+
+          <div className="md:col-span-2">
+            <div style={{ marginBottom:'1rem' }}>
+              <span style={{
+                fontSize:'1.8rem',
+                fontWeight:900,
+                background:'linear-gradient(135deg, #B8860B, #D4AF37, #FFD700)',
+                WebkitBackgroundClip:'text',
+                WebkitTextFillColor:'transparent',
+                backgroundClip:'text',
+              }}>
+                Rima Modak
+              </span>
+            </div>
+            <p style={{ color:'var(--text-footer)', fontSize:'0.875rem', lineHeight:'1.7', maxWidth:'320px' }}>
+              Senior AI/ML Engineer building enterprise-grade agentic AI systems, RAG pipelines, and
+              cloud-native MLOps solutions across AWS, Azure, and GCP.
             </p>
+            <div style={{ display:'flex', gap:'0.75rem', marginTop:'1.25rem', flexWrap:'wrap' }}>
+              {[
+                { label:'LinkedIn', href:`https://linkedin.com/in/${personalInfo.linkedin}`, external:true },
+                { label:'GitHub', href:'https://github.com/Rimcode-ai', external:true },
+                { label:'Email', href:`mailto:${personalInfo.email}`, external:false },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.external ? '_blank' : undefined}
+                  rel={s.external ? 'noopener noreferrer' : undefined}
+                  style={{
+                    padding:'0.4rem 1rem',
+                    borderRadius:'0.4rem',
+                    fontSize:'0.8rem',
+                    fontWeight:600,
+                    textDecoration:'none',
+                    color:'#D4AF37',
+                    border:'1px solid rgba(212,175,55,0.35)',
+                    transition:'all 0.2s ease',
+                  }}
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="/" className="text-blue-600 dark:text-blue-400 hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="text-blue-600 dark:text-blue-400 hover:underline">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="/experience" className="text-blue-600 dark:text-blue-400 hover:underline">
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline">
-                  Contact
-                </a>
-              </li>
+            <h4 style={{ color:'#D4AF37', fontWeight:700, fontSize:'0.875rem', letterSpacing:'0.1em', marginBottom:'1rem', textTransform:'uppercase' }}>
+              Navigation
+            </h4>
+            <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'0.5rem' }}>
+              {[
+                { href:'/', label:'Home' },
+                { href:'/about', label:'About' },
+                { href:'/experience', label:'Experience' },
+                { href:'/education', label:'Education' },
+                { href:'/contact', label:'Contact' },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} style={{ color:'var(--text-footer)', textDecoration:'none', fontSize:'0.875rem', transition:'color 0.2s ease' }}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Connect</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  Email
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`https://linkedin.com/in/${personalInfo.linkedin}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/Rimcode-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  GitHub
-                </a>
-              </li>
+            <h4 style={{ color:'#D4AF37', fontWeight:700, fontSize:'0.875rem', letterSpacing:'0.1em', marginBottom:'1rem', textTransform:'uppercase' }}>
+              Expertise
+            </h4>
+            <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'0.5rem' }}>
+              {['Agentic AI & LLMs','MLOps & CI/CD','RAG Architecture','Cloud Platforms','Data Engineering','AI Security'].map((e) => (
+                <li key={e} style={{ color:'#8B8B8B', fontSize:'0.8rem' }}>
+                  {e}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-8 text-center text-sm text-gray-600 dark:text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Rima Modak. All rights reserved.</p>
+        <div style={{ borderTop:'1px solid rgba(212,175,55,0.12)', paddingTop:'2rem', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'0.5rem' }}>
+          <p style={{ color:'#5A5A5A', fontSize:'0.8rem' }}>
+            &copy; {new Date().getFullYear()} Rima Modak. All rights reserved.
+          </p>
+          <p style={{ color:'#5A5A5A', fontSize:'0.8rem' }}>
+            Senior AI/ML Engineer · San Francisco Bay Area
+          </p>
         </div>
       </div>
     </footer>

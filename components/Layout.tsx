@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import AIChatWidget from './AIChatWidget';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,12 +9,13 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div style={{ minHeight:'100vh', display:'flex', flexDirection:'column', background:'#0A0F1E' }}>
       <Navigation />
-      <main className="flex-grow">
+      <main style={{ flexGrow: 1 }}>
         {children}
       </main>
       <Footer />
+      <AIChatWidget />
     </div>
   );
 }

@@ -3,7 +3,7 @@ export const personalInfo = {
   title: 'Senior AI/ML Engineer',
   email: 'rimamodakglobal06@gmail.com',
   phone: '(669) 215-3876',
-  linkedin: 'rimamodak',
+  linkedin: 'rimasaswatimodak',
   portfolio: 'rimasblog',
   summary: 'Dedicated and results-oriented AI/ML Engineer with experience of 10+ years in designing, developing, and deploying end-to-end AI and ML solutions on AWS and Azure. Expertise in MLOps, Data processing, NLP, and predictive modeling (including deep learning and ensemble methods). Proven track record in building production-grade AI agents, orchestrating multi-agent workflows (LangGraph, CrewAI, AutoGen), and deploying scalable LLM inference systems. Skilled at LLM Fine-Tuning (LoRA, QLoRA), RAG Architecture (Pinecone, Weaviate, ChromaDB), AI security, governance, and ethical AI principles. Passionate about bridging the gap between prototypes and enterprise-grade AI products.',
 };

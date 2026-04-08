@@ -23,30 +23,58 @@ export default function ExperienceCard({
 
   return (
     <div className="experience-card">
-      <div className="flex justify-between items-start mb-2">
+      <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:'0.35rem', flexWrap:'wrap', gap:'0.5rem' }}>
         <div>
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
-          <p className="text-blue-600 dark:text-blue-400 font-semibold">{company}</p>
+          <h3 style={{ fontSize:'1.1rem', fontWeight:700, color:'var(--text-primary)', marginBottom:'0.2rem' }}>
+            {title}
+          </h3>
+          <p style={{
+            fontWeight:600,
+            fontSize:'0.95rem',
+            background:'linear-gradient(135deg, #B8860B, #D4AF37)',
+            WebkitBackgroundClip:'text',
+            WebkitTextFillColor:'transparent',
+            backgroundClip:'text',
+          }}>
+            {company}
+          </p>
         </div>
-        <span className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap ml-4">
+        <span style={{
+          fontSize:'0.78rem',
+          color:'#A0A0A0',
+          whiteSpace:'nowrap',
+          padding:'0.2rem 0.65rem',
+          borderRadius:'9999px',
+          background:'rgba(212,175,55,0.08)',
+          border:'1px solid rgba(212,175,55,0.2)',
+        }}>
           {startDate} – {endDate}
         </span>
       </div>
-      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{location}</p>
+
+      <p style={{ color:'var(--text-muted)', fontSize:'0.8rem', marginBottom: isExpanded ? '1rem' : '0.75rem' }}>
+        {location}
+      </p>
 
       {isExpanded && (
         <>
-          <div className="mb-4 space-y-2">
+          <div style={{ marginBottom:'1rem', display:'flex', flexDirection:'column', gap:'0.6rem' }}>
             {highlights.map((highlight, idx) => (
-              <div key={idx} className="text-gray-700 dark:text-gray-300 text-sm flex">
-                <span className="mr-3">▸</span>
+              <div key={idx} style={{ display:'flex', fontSize:'0.85rem', color:'var(--text-secondary)', lineHeight:'1.5' }}>
+                <span style={{ color:'#D4AF37', marginRight:'0.6rem', flexShrink:0, marginTop:'0.1rem' }}>▸</span>
                 <span>{highlight}</span>
               </div>
             ))}
           </div>
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
-            <p className="text-sm text-gray-800 dark:text-gray-200">
-              <strong>Impact:</strong> {achievements}
+          <div style={{
+            padding:'0.875rem 1rem',
+            borderRadius:'0.6rem',
+            marginBottom:'0.875rem',
+            background:'rgba(212,175,55,0.07)',
+            border:'1px solid rgba(212,175,55,0.2)',
+          }}>
+            <p style={{ fontSize:'0.85rem', color:'var(--text-primary)', lineHeight:'1.6' }}>
+              <strong style={{ color:'#D4AF37' }}>Impact: </strong>{achievements}
             </p>
           </div>
         </>
@@ -54,9 +82,18 @@ export default function ExperienceCard({
 
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-semibold"
+        style={{
+          background:'none',
+          border:'none',
+          cursor:'pointer',
+          fontSize:'0.82rem',
+          fontWeight:600,
+          color:'#D4AF37',
+          padding:0,
+          transition:'opacity 0.2s',
+        }}
       >
-        {isExpanded ? '- Show Less' : '+ Show More'}
+        {isExpanded ? '− Show Less' : '+ Show More'}
       </button>
     </div>
   );
