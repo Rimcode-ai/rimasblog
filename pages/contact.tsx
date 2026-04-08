@@ -188,16 +188,13 @@ export default function Contact() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
             <div>
-              <p className="font-bold mb-2">📧 Email</p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">Best for detailed inquiries</p>
+              <a href={`mailto:${personalInfo.email}`} className="font-bold hover:underline text-blue-600 dark:text-blue-400">📧 Email</a>
             </div>
             <div>
-              <p className="font-bold mb-2">💼 LinkedIn</p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">Quick updates and networking</p>
+              <a href={`https://linkedin.com/in/${personalInfo.linkedin}`} target="_blank" rel="noopener noreferrer" className="font-bold hover:underline text-blue-600 dark:text-blue-400">💼 LinkedIn</a>
             </div>
             <div>
-              <p className="font-bold mb-2">📞 Phone</p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">For time-sensitive matters</p>
+              <a href={`tel:${personalInfo.phone}`} className="font-bold hover:underline text-blue-600 dark:text-blue-400">📞 Phone</a>
             </div>
           </div>
         </section>
