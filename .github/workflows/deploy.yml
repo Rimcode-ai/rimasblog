@@ -3,7 +3,15 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - claude/create-portfolio-website-s8ksm
+      - main
+      - develop
+      - 'redesign/**'
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy from'
+        required: false
+        default: 'main'
 
 jobs:
   build-and-deploy:
@@ -16,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies

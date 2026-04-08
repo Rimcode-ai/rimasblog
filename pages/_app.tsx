@@ -8,6 +8,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     setMounted(true);
+    // Always apply dark mode — this site uses a dark luxury theme
+    document.documentElement.classList.add('dark');
   }, []);
 
   if (!mounted) return null;

@@ -2,21 +2,19 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { personalInfo } from '@/data/resume';
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+const contactLinks = [
+  { icon:'✉️', label:'Email', value:personalInfo.email, href:`mailto:${personalInfo.email}`, color:'#D4AF37' },
+  { icon:'📞', label:'Phone', value:personalInfo.phone, href:`tel:${personalInfo.phone}`, color:'#C0C0C0' },
+  { icon:'💼', label:'LinkedIn', value:`linkedin.com/in/${personalInfo.linkedin}`, href:`https://linkedin.com/in/${personalInfo.linkedin}`, color:'#2563EB', external:true },
+  { icon:'🐙', label:'GitHub', value:'github.com/Rimcode-ai', href:'https://github.com/Rimcode-ai', color:'#C0C0C0', external:true },
+];
 
+export default function Contact() {
+  const [formData, setFormData] = useState({ name:'', email:'', subject:'', message:'' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,130 +25,125 @@ export default function Contact() {
     window.location.href = mailtoLink;
     setSubmitted(true);
     setTimeout(() => {
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name:'', email:'', subject:'', message:'' });
       setSubmitted(false);
-    }, 2000);
+    }, 2500);
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '0.7rem 1rem',
+    borderRadius: '0.5rem',
+    background: 'rgba(13,26,53,0.9)',
+    border: '1px solid rgba(212,175,55,0.2)',
+    color: '#E8E8E8',
+    fontSize: '0.9rem',
+    outline: 'none',
+    transition: 'border-color 0.2s ease',
   };
 
   return (
     <>
       <Head>
-        <title>Contact - Rima Modak</title>
-        <meta name="description" content="Get in touch with Rima Modak" />
+        <title>Contact — Rima Modak</title>
+        <meta name="description" content="Get in touch with Rima Modak, Senior AI/ML Engineer." />
       </Head>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="section-title">Let's Connect</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Information */}
+
+          {/* Contact info */}
           <div>
-            <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
-            <div className="space-y-6">
-              {/* Email */}
-              <div className="experience-card">
-                <h3 className="font-bold text-lg mb-2">Email</h3>
+            <h2 style={{ fontSize:'1.3rem', fontWeight:700, color:'#E8E8E8', marginBottom:'1.5rem' }}>
+              Get In Touch
+            </h2>
+            <div style={{ display:'flex', flexDirection:'column', gap:'1rem', marginBottom:'2.5rem' }}>
+              {contactLinks.map((c) => (
                 <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline text-lg"
+                  key={c.label}
+                  href={c.href}
+                  target={c.external ? '_blank' : undefined}
+                  rel={c.external ? 'noopener noreferrer' : undefined}
+                  className="experience-card"
+                  style={{
+                    display:'flex', alignItems:'center', gap:'1rem',
+                    textDecoration:'none',
+                  }}
                 >
-                  {personalInfo.email}
+                  <div style={{
+                    width:'44px', height:'44px', flexShrink:0,
+                    borderRadius:'0.6rem',
+                    background:`rgba(${c.color === '#D4AF37' ? '212,175,55' : c.color === '#2563EB' ? '37,99,235' : '192,192,192'},0.1)`,
+                    border:`1px solid rgba(${c.color === '#D4AF37' ? '212,175,55' : c.color === '#2563EB' ? '37,99,235' : '192,192,192'},0.25)`,
+                    display:'flex', alignItems:'center', justifyContent:'center',
+                    fontSize:'1.3rem',
+                  }}>
+                    {c.icon}
+                  </div>
+                  <div>
+                    <p style={{ fontSize:'0.75rem', color:'#8B8B8B', marginBottom:'0.1rem', textTransform:'uppercase', letterSpacing:'0.06em' }}>
+                      {c.label}
+                    </p>
+                    <p style={{ color:c.color, fontWeight:500, fontSize:'0.875rem' }}>
+                      {c.value}
+                    </p>
+                  </div>
                 </a>
-              </div>
+              ))}
+            </div>
 
-              {/* Phone */}
-              <div className="experience-card">
-                <h3 className="font-bold text-lg mb-2">Phone</h3>
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                >
-                  {personalInfo.phone}
-                </a>
+            {/* Availability */}
+            <div style={{
+              padding:'1.5rem',
+              borderRadius:'1rem',
+              background:'rgba(21,128,61,0.08)',
+              border:'1px solid rgba(21,128,61,0.3)',
+            }}>
+              <div style={{ display:'flex', alignItems:'center', gap:'0.5rem', marginBottom:'0.75rem' }}>
+                <div style={{ width:'10px', height:'10px', borderRadius:'50%', background:'#22c55e', boxShadow:'0 0 8px #22c55e' }} />
+                <span style={{ color:'#22c55e', fontWeight:700, fontSize:'0.85rem', textTransform:'uppercase', letterSpacing:'0.06em' }}>
+                  Available
+                </span>
               </div>
-
-              {/* LinkedIn */}
-              <div className="experience-card">
-                <h3 className="font-bold text-lg mb-2">LinkedIn</h3>
-                <a
-                  href={`https://linkedin.com/in/${personalInfo.linkedin}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                >
-                  linkedin.com/in/{personalInfo.linkedin}
-                </a>
-              </div>
-
-              {/* GitHub */}
-              <div className="experience-card">
-                <h3 className="font-bold text-lg mb-2">GitHub</h3>
-                <a
-                  href="https://github.com/Rimcode-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                >
-                  github.com/Rimcode-ai
-                </a>
-              </div>
+              <p style={{ color:'#A0A0A0', fontSize:'0.875rem', lineHeight:'1.7' }}>
+                Open to senior AI/ML engineering roles, agentic AI consulting, and enterprise AI architecture projects.
+                I respond within 24-48 hours.
+              </p>
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Form */}
           <div>
-            <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Your name"
-                />
-              </div>
+            <h2 style={{ fontSize:'1.3rem', fontWeight:700, color:'#E8E8E8', marginBottom:'1.5rem' }}>
+              Send a Message
+            </h2>
+            <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:'1rem' }}>
+              {[
+                { id:'name', label:'Name', type:'text', placeholder:'Your name' },
+                { id:'email', label:'Email', type:'email', placeholder:'your.email@example.com' },
+                { id:'subject', label:'Subject', type:'text', placeholder:"What's this about?" },
+              ].map((field) => (
+                <div key={field.id}>
+                  <label htmlFor={field.id} style={{ display:'block', fontSize:'0.8rem', fontWeight:600, color:'#A0A0A0', marginBottom:'0.4rem', textTransform:'uppercase', letterSpacing:'0.06em' }}>
+                    {field.label}
+                  </label>
+                  <input
+                    type={field.type}
+                    id={field.id}
+                    name={field.id}
+                    value={formData[field.id as keyof typeof formData]}
+                    onChange={handleChange}
+                    required
+                    placeholder={field.placeholder}
+                    style={inputStyle}
+                  />
+                </div>
+              ))}
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-semibold mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="What's this about?"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                <label htmlFor="message" style={{ display:'block', fontSize:'0.8rem', fontWeight:600, color:'#A0A0A0', marginBottom:'0.4rem', textTransform:'uppercase', letterSpacing:'0.06em' }}>
                   Message
                 </label>
                 <textarea
@@ -160,44 +153,25 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Your message here..."
-                ></textarea>
+                  placeholder="Tell me about your project or opportunity..."
+                  style={{ ...inputStyle, resize:'vertical' }}
+                />
               </div>
 
               <button
                 type="submit"
-                className="w-full btn-primary font-semibold py-3"
+                className="btn-primary"
+                style={{ width:'100%', marginTop:'0.25rem', textAlign:'center', fontSize:'0.95rem' }}
               >
-                {submitted ? 'Opening email client...' : 'Send Message'}
+                {submitted ? '✓ Opening email client...' : 'Send Message'}
               </button>
             </form>
 
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
-              I typically respond to inquiries within 24-48 hours.
+            <p style={{ fontSize:'0.8rem', color:'#5A5A5A', marginTop:'0.875rem', textAlign:'center' }}>
+              Typically responds within 24–48 hours
             </p>
           </div>
         </div>
-
-        {/* Availability */}
-        <section className="mt-16 bg-green-50 dark:bg-green-900/20 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Availability</h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-            I'm currently open to discussing AI/ML consulting opportunities, contract work, and full-time positions.
-            Whether you have a specific project in mind or just want to explore possibilities, I'd love to hear from you.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            <div>
-              <a href={`mailto:${personalInfo.email}`} className="font-bold hover:underline text-blue-600 dark:text-blue-400">📧 Email</a>
-            </div>
-            <div>
-              <a href={`https://linkedin.com/in/${personalInfo.linkedin}`} target="_blank" rel="noopener noreferrer" className="font-bold hover:underline text-blue-600 dark:text-blue-400">💼 LinkedIn</a>
-            </div>
-            <div>
-              <a href={`tel:${personalInfo.phone}`} className="font-bold hover:underline text-blue-600 dark:text-blue-400">📞 Phone</a>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   );

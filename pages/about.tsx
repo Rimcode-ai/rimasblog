@@ -7,75 +7,86 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - Rima Modak</title>
-        <meta name="description" content="About Rima Modak, Senior AI/ML Engineer" />
+        <title>About — Rima Modak</title>
+        <meta name="description" content="About Rima Modak, Senior AI/ML Engineer with 10+ years of experience." />
       </Head>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
         {/* About Section */}
-        <section className="mb-16">
+        <section style={{ marginBottom:'4rem' }}>
           <h1 className="section-title">About Me</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="md:col-span-2">
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="md:col-span-2" style={{ display:'flex', flexDirection:'column', gap:'1rem' }}>
+              <p style={{ fontSize:'1rem', color:'#C0C0C0', lineHeight:'1.8' }}>
                 I'm a dedicated AI/ML Engineer with over 10 years of experience designing, developing, and deploying
                 end-to-end AI and ML solutions. My journey spans from traditional machine learning to cutting-edge
                 generative AI and agentic systems.
               </p>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              <p style={{ fontSize:'1rem', color:'#C0C0C0', lineHeight:'1.8' }}>
                 With deep expertise in MLOps, data engineering, and enterprise AI architecture, I've helped organizations
                 transform complex business challenges into intelligent, scalable solutions. I'm passionate about building
                 production-grade AI systems that deliver measurable impact.
               </p>
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Currently working on enterprise Agentic AI platforms and RAG architectures, I'm committed to bridging the
-                gap between research and real-world applications, ensuring AI solutions are secure, ethical, and truly
-                transformative.
+              <p style={{ fontSize:'1rem', color:'#C0C0C0', lineHeight:'1.8' }}>
+                Currently working on enterprise Agentic AI platforms and RAG architectures at Firstup, I'm committed to
+                bridging the gap between research and real-world applications — ensuring AI solutions are secure,
+                ethical, and truly transformative.
               </p>
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg h-fit">
-              <h3 className="font-bold text-lg mb-4">Quick Info</h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <strong>Email:</strong>{' '}
-                  <a href={`mailto:${personalInfo.email}`} className="text-blue-600 dark:text-blue-400 hover:underline">
-                    {personalInfo.email}
-                  </a>
-                </li>
-                <li>
-                  <strong>Phone:</strong> {personalInfo.phone}
-                </li>
-                <li>
-                  <strong>LinkedIn:</strong>{' '}
-                  <a
-                    href={`https://linkedin.com/in/${personalInfo.linkedin}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
-                  >
-                    {personalInfo.linkedin}
-                  </a>
-                </li>
-                <li>
-                  <strong>GitHub:</strong>{' '}
-                  <a
-                    href="https://github.com/Rimcode-ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
-                  >
-                    Rimcode-ai
-                  </a>
-                </li>
+
+            <div style={{
+              background:'rgba(13,26,53,0.85)',
+              border:'1px solid rgba(212,175,55,0.2)',
+              borderRadius:'1rem',
+              padding:'1.5rem',
+              height:'fit-content',
+            }}>
+              <h3 style={{
+                fontWeight:700,
+                fontSize:'0.875rem',
+                letterSpacing:'0.1em',
+                textTransform:'uppercase',
+                color:'#D4AF37',
+                marginBottom:'1.25rem',
+              }}>
+                Quick Info
+              </h3>
+              <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'0.875rem' }}>
+                {[
+                  { label:'Email', value:personalInfo.email, href:`mailto:${personalInfo.email}` },
+                  { label:'Phone', value:personalInfo.phone, href:`tel:${personalInfo.phone}` },
+                  { label:'LinkedIn', value:`/in/${personalInfo.linkedin}`, href:`https://linkedin.com/in/${personalInfo.linkedin}`, external:true },
+                  { label:'GitHub', value:'Rimcode-ai', href:'https://github.com/Rimcode-ai', external:true },
+                  { label:'Location', value:'San Mateo, CA', href:null },
+                ].map((item) => (
+                  <li key={item.label} style={{ fontSize:'0.85rem' }}>
+                    <span style={{ color:'#8B8B8B', display:'block', marginBottom:'0.15rem', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'0.06em' }}>
+                      {item.label}
+                    </span>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
+                        style={{ color:'#D4AF37', textDecoration:'none', fontWeight:500 }}
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span style={{ color:'#C0C0C0', fontWeight:500 }}>{item.value}</span>
+                    )}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </section>
 
         {/* Technical Skills */}
-        <section className="mb-16">
+        <section style={{ marginBottom:'4rem' }}>
           <h2 className="section-title">Technical Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {Object.entries(technicalSkills).map(([category, skills]) => (
               <SkillCard key={category} category={category} skills={skills} />
             ))}
@@ -85,12 +96,26 @@ export default function About() {
         {/* Soft Skills */}
         <section>
           <h2 className="section-title">Soft Skills</h2>
-          <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-            <div className="flex flex-wrap gap-3">
+          <div style={{
+            background:'rgba(13,26,53,0.6)',
+            border:'1px solid rgba(192,192,192,0.1)',
+            borderRadius:'1rem',
+            padding:'2rem',
+          }}>
+            <div style={{ display:'flex', flexWrap:'wrap', gap:'0.75rem' }}>
               {softSkills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-900 dark:text-purple-100 rounded-lg font-semibold"
+                  style={{
+                    padding:'0.4rem 1rem',
+                    borderRadius:'0.5rem',
+                    fontSize:'0.85rem',
+                    fontWeight:600,
+                    background:'rgba(192,192,192,0.08)',
+                    color:'#C0C0C0',
+                    border:'1px solid rgba(192,192,192,0.2)',
+                    transition:'all 0.2s ease',
+                  }}
                 >
                   {skill}
                 </span>
