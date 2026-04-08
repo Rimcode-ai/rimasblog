@@ -78,7 +78,7 @@ export default function Education() {
                 }}>
                   ✓
                 </span>
-                <p style={{ color:'#C0C0C0', fontWeight:500, fontSize:'0.875rem', lineHeight:'1.5' }}>
+                <p style={{ color:'var(--text-secondary)', fontWeight:500, fontSize:'0.875rem', lineHeight:'1.5' }}>
                   {cert}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function Education() {
             }}>
               Continuous Learning
             </h3>
-            <p style={{ color:'#A0A0A0', fontSize:'0.9rem', marginBottom:'1rem', lineHeight:'1.7' }}>
+            <p style={{ color:'var(--text-muted)', fontSize:'0.9rem', marginBottom:'1rem', lineHeight:'1.7' }}>
               Staying at the frontier of AI and ML through:
             </p>
             <div style={{ display:'flex', flexDirection:'column', gap:'0.5rem' }}>

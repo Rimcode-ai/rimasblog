@@ -25,7 +25,7 @@ export default function ExperienceCard({
     <div className="experience-card">
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:'0.35rem', flexWrap:'wrap', gap:'0.5rem' }}>
         <div>
-          <h3 style={{ fontSize:'1.1rem', fontWeight:700, color:'#E8E8E8', marginBottom:'0.2rem' }}>
+          <h3 style={{ fontSize:'1.1rem', fontWeight:700, color:'var(--text-primary)', marginBottom:'0.2rem' }}>
             {title}
           </h3>
           <p style={{
@@ -52,7 +52,7 @@ export default function ExperienceCard({
         </span>
       </div>
 
-      <p style={{ color:'#8B8B8B', fontSize:'0.8rem', marginBottom: isExpanded ? '1rem' : '0.75rem' }}>
+      <p style={{ color:'var(--text-muted)', fontSize:'0.8rem', marginBottom: isExpanded ? '1rem' : '0.75rem' }}>
         {location}
       </p>
 
@@ -60,7 +60,7 @@ export default function ExperienceCard({
         <>
           <div style={{ marginBottom:'1rem', display:'flex', flexDirection:'column', gap:'0.6rem' }}>
             {highlights.map((highlight, idx) => (
-              <div key={idx} style={{ display:'flex', fontSize:'0.85rem', color:'#C0C0C0', lineHeight:'1.5' }}>
+              <div key={idx} style={{ display:'flex', fontSize:'0.85rem', color:'var(--text-secondary)', lineHeight:'1.5' }}>
                 <span style={{ color:'#D4AF37', marginRight:'0.6rem', flexShrink:0, marginTop:'0.1rem' }}>▸</span>
                 <span>{highlight}</span>
               </div>
@@ -73,7 +73,7 @@ export default function ExperienceCard({
             background:'rgba(212,175,55,0.07)',
             border:'1px solid rgba(212,175,55,0.2)',
           }}>
-            <p style={{ fontSize:'0.85rem', color:'#D4D4D4', lineHeight:'1.6' }}>
+            <p style={{ fontSize:'0.85rem', color:'var(--text-primary)', lineHeight:'1.6' }}>
               <strong style={{ color:'#D4AF37' }}>Impact: </strong>{achievements}
             </p>
           </div>

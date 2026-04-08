@@ -93,20 +93,22 @@ export default function Home(): JSX.Element {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
         ref={heroRef}
-        className="hero-backdrop"
-        style={{ minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'hidden' }}
+        style={{
+          minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'hidden',
+          background: 'var(--bg-primary)',
+        }}
       >
         {/* Decorative blurs */}
         <div style={{
           position:'absolute', top:'10%', left:'5%',
           width:'400px', height:'400px', borderRadius:'50%',
-          background:'radial-gradient(circle, rgba(30,64,175,0.15) 0%, transparent 70%)',
+          background:'radial-gradient(circle, rgba(30,64,175,0.08) 0%, transparent 70%)',
           pointerEvents:'none',
         }} />
         <div style={{
           position:'absolute', bottom:'10%', right:'5%',
           width:'350px', height:'350px', borderRadius:'50%',
-          background:'radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%)',
+          background:'radial-gradient(circle, rgba(184,134,11,0.08) 0%, transparent 70%)',
           pointerEvents:'none',
         }} />
         <div style={{
@@ -158,7 +160,7 @@ export default function Home(): JSX.Element {
                 Senior AI/ML Engineer
               </p>
 
-              <p style={{ fontSize:'1rem', color:'#8B8B8B', lineHeight:'1.75', marginBottom:'2rem', maxWidth:'520px' }}>
+              <p style={{ fontSize:'1rem', color:'var(--text-muted)', lineHeight:'1.75', marginBottom:'2rem', maxWidth:'520px' }}>
                 10+ years designing production-grade Agentic AI systems, RAG architectures, and cloud-native MLOps solutions.
                 Currently building enterprise AI at <span style={{ color:'#D4AF37', fontWeight:600 }}>Firstup</span> in San Mateo, CA.
               </p>
@@ -276,9 +278,9 @@ export default function Home(): JSX.Element {
         ref={statsRef}
         style={{
           padding:'4rem 0',
-          background:'rgba(7,11,23,0.8)',
-          borderTop:'1px solid rgba(212,175,55,0.1)',
-          borderBottom:'1px solid rgba(212,175,55,0.1)',
+          background:'var(--bg-secondary)',
+          borderTop:'1px solid var(--border-gold)',
+          borderBottom:'1px solid var(--border-gold)',
         }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -303,11 +305,11 @@ export default function Home(): JSX.Element {
       </section>
 
       {/* ── Expertise Grid ───────────────────────────────────── */}
-      <section style={{ padding:'5rem 0' }}>
+      <section style={{ padding:'5rem 0', background:'var(--bg-primary)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div style={{ textAlign:'center', marginBottom:'3rem' }}>
             <h2 className="section-title" style={{ display:'inline-block' }}>Core Expertise</h2>
-            <p style={{ color:'#8B8B8B', fontSize:'1rem', maxWidth:'520px', margin:'0 auto' }}>
+            <p style={{ color:'var(--text-muted)', fontSize:'1rem', maxWidth:'520px', margin:'0 auto' }}>
               A decade building production AI/ML systems across the full stack — from data pipelines to agentic reasoning engines.
             </p>
           </div>
@@ -323,10 +325,10 @@ export default function Home(): JSX.Element {
                 }}>
                   {item.icon}
                 </div>
-                <h3 style={{ color:'#E8E8E8', fontWeight:700, fontSize:'1rem', marginBottom:'0.6rem' }}>
+                <h3 style={{ color:'var(--text-primary)', fontWeight:700, fontSize:'1rem', marginBottom:'0.6rem' }}>
                   {item.title}
                 </h3>
-                <p style={{ color:'#8B8B8B', fontSize:'0.85rem', lineHeight:'1.65' }}>
+                <p style={{ color:'var(--text-muted)', fontSize:'0.85rem', lineHeight:'1.65' }}>
                   {item.description}
                 </p>
               </div>
@@ -355,7 +357,7 @@ export default function Home(): JSX.Element {
           }}>
             Let's Build Something<br />Extraordinary Together
           </div>
-          <p style={{ color:'#A0A0A0', fontSize:'1rem', marginBottom:'2.5rem', lineHeight:'1.7' }}>
+          <p style={{ color:'var(--text-muted)', fontSize:'1rem', marginBottom:'2.5rem', lineHeight:'1.7' }}>
             Whether you're scaling an enterprise AI platform, launching a new product, or solving a complex data challenge —
             Rima brings the expertise to make it happen.
           </p>

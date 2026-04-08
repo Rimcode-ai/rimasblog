@@ -25,7 +25,7 @@ export default function Footer() {
                 Rima Modak
               </span>
             </div>
-            <p style={{ color:'#A0A0A0', fontSize:'0.875rem', lineHeight:'1.7', maxWidth:'320px' }}>
+            <p style={{ color:'var(--text-footer)', fontSize:'0.875rem', lineHeight:'1.7', maxWidth:'320px' }}>
               Senior AI/ML Engineer building enterprise-grade agentic AI systems, RAG pipelines, and
               cloud-native MLOps solutions across AWS, Azure, and GCP.
             </p>
@@ -70,7 +70,7 @@ export default function Footer() {
                 { href:'/contact', label:'Contact' },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} style={{ color:'#A0A0A0', textDecoration:'none', fontSize:'0.875rem', transition:'color 0.2s ease' }}>
+                  <Link href={l.href} style={{ color:'var(--text-footer)', textDecoration:'none', fontSize:'0.875rem', transition:'color 0.2s ease' }}>
                     {l.label}
                   </Link>
                 </li>

@@ -68,7 +68,7 @@ export default function Experience() {
                   }}>
                     {i + 1}
                   </div>
-                  <p style={{ color:'#C0C0C0', fontSize:'0.9rem', lineHeight:'1.65' }}>{text}</p>
+                  <p style={{ color:'var(--text-secondary)', fontSize:'0.9rem', lineHeight:'1.65' }}>{text}</p>
                 </div>
               ))}
             </div>
