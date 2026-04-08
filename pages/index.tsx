@@ -3,21 +3,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { personalInfo } from '@/data/resume';
 
-function useCountUp(target: number, duration = 2000, start = false) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!start) return;
-    let startTime: number | null = null;
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      setCount(Math.floor(progress * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [target, duration, start]);
-  return count;
-}
 
 const expertiseItems = [
   {
@@ -65,21 +50,30 @@ const impactStats = [
   { value: 40, suffix: '%', label: 'Avg Efficiency Gain', color: '#D4AF37' },
 ];
 
-export default function Home(): JSX.Element {
-  const heroRef = useRef<HTMLDivElement>(null);
+export default function Home(): React.ReactElement {
   const statsRef = useRef<HTMLDivElement>(null);
-  const [statsVisible, setStatsVisible] = useState(false);
+  const [counts, setCounts] = useState(impactStats.map(() => 0));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setStatsVisible(true); },
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const duration = 1800;
+        let startTime: number | null = null;
+        const step = (timestamp: number) => {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          setCounts(impactStats.map((s) => Math.floor(progress * s.value)));
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      },
       { threshold: 0.3 }
     );
     if (statsRef.current) observer.observe(statsRef.current);
     return () => observer.disconnect();
   }, []);
-
-  const counts = impactStats.map((s) => useCountUp(s.value, 1800, statsVisible));
 
   return (
     <>
@@ -92,7 +86,6 @@ export default function Home(): JSX.Element {
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
-        ref={heroRef}
         style={{
           minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'hidden',
           background: 'var(--bg-primary)',
